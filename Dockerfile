@@ -4,7 +4,6 @@ WORKDIR /base
 
 COPY . .
 RUN go build -o bin/app cmd/action/main.go
-RUN ls -la
 
 FROM scratch AS release
 
