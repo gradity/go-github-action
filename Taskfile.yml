@@ -3,8 +3,16 @@ version: '3'
 tasks:
   run:
     cmds:
-    - go run cmd/api/main.go -debug
+      - go run cmd/action/main.go
 
   compile:
     cmds:
-    - go build cmd/cli/main.go -o bin/central-cli
+      - go build -o bin/main cmd/action/main.go
+
+  build:
+    cmds:
+      - docker build --no-cache --progress=plain -t go-action:{{ .CLI_ARGS }} .
+
+  rund:
+    cmds:
+      - docker run --rm go-action:{{ .CLI_ARGS }}

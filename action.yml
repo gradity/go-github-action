@@ -1,0 +1,10 @@
+name: go-action
+description: simple go docker based action
+inputs:
+  greet:
+    description: who to greet
+    required: true
+    default: world
+runs:
+  using: docker
+  image: Dockerfile
