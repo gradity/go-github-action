@@ -1,10 +1,15 @@
 name: go-action
 description: simple go docker based action
 inputs:
-  greet:
+  whogreet:
     description: who to greet
     required: true
     default: world
+outputs:
+  message:
+    description: greeting message
 runs:
   using: docker
   image: Dockerfile
+  args:
+    - ${{ inputs.whogreet }}
